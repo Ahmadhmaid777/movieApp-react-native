@@ -20,7 +20,7 @@ const NewShowingMoviesList = ({movies = []}: Props) => {
       movieId: movieId,
     });
   };
-  if (movies.length == 0) {
+  if (movies?.length == 0) {
     return null;
   }
 

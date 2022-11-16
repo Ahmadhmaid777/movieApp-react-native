@@ -14,13 +14,13 @@ const PopularMoviesList = ({
   movies,
   ListHeaderComponent,
 }: PopularMoviesListProps) => {
-  if (movies.length == 0) {
+  if (movies?.length == 0) {
     return null;
   }
   return (
     <View style={styles.container}>
       <View style={styles.moviesList}>
-        <FlashList
+        <FlatList
           data={movies}
           ListHeaderComponent={
             <>
@@ -33,7 +33,6 @@ const PopularMoviesList = ({
             </>
           }
           renderItem={({item}) => <PopularMoviesItem movie={item} />}
-          estimatedItemSize={movies.length}
         />
       </View>
     </View>

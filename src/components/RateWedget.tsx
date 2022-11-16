@@ -1,11 +1,16 @@
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, ViewStyle} from 'react-native';
 import React from 'react';
 import {colors, spacing} from 'theme';
 import Text from './Text';
 import {RateStarIcon} from 'assets/icons';
-const RateWedget = ({vote_average = 1}) => {
+
+type RateWedgetProps = {
+  vote_average: number;
+  style?: ViewStyle | undefined;
+};
+const RateWedget = ({vote_average = 1, style}: RateWedgetProps) => {
   return (
-    <View style={styles.rateView}>
+    <View style={[styles.rateView, style]}>
       <RateStarIcon />
       <Text
         color={colors.gray[400]}

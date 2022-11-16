@@ -11,13 +11,13 @@ type QueryConfigProps =
 const useQuery = (
   queryKey: QueryKeyProps,
   queryFn: QueryFnProps,
-  config: QueryConfigProps | undefined = undefined,
+  config: QueryConfigProps = {enable: true},
 ) => {
   let [data, setDate] = useState();
   let [isLoading, setIsLoading] = useState(true);
   let [error, setError] = useState();
 
-  const handelQueryFn = useCallback(() => {
+  const handelQueryFn = () => {
     setIsLoading(true);
     queryFn()
       .then(resData => {
@@ -29,11 +29,12 @@ const useQuery = (
       .then(() => {
         setIsLoading(false);
       });
-  }, []);
+  };
 
   useEffect(() => {
-    config?.enable || handelQueryFn();
-  }, [config?.enable]);
+    config.enable && handelQueryFn();
+  }, [config]);
+
   const refetch = handelQueryFn;
 
   return {data, isLoading, refetch, error};

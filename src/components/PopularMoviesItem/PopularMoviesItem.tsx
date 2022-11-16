@@ -10,6 +10,7 @@ import {GenerButton} from 'components/Buttons';
 import {useNavigation} from '@react-navigation/native';
 import {MainStackScreenProps} from 'navigation/types';
 import {useStore} from 'store/Store';
+import FastImage from 'react-native-fast-image';
 
 type PopularMoviesItemProps = {
   movie: IMovie;
@@ -45,10 +46,9 @@ const PopularMoviesItem = ({movie}: PopularMoviesItemProps) => {
   };
   return (
     <Pressable onPress={onPressItem} style={styles.container}>
-      <Image
+      <FastImage
         style={styles.image}
         source={{uri: endpoints.imagesEndPonint + movie.backdrop_path}}
-        resizeMode="cover"
       />
       <View style={styles.detailsContent}>
         <Text tx={movie.title} variant="largeMedium" color={colors.gray[900]} />

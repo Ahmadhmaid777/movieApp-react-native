@@ -1,3 +1,1 @@
-import endpoints from './endpoints';
-
-export {endpoints};
+export {default as endpoints} from './endpoints';

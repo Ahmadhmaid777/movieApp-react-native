@@ -1,3 +1,1 @@
-import MovieDetailsScreen from './MovieDetailsScreen';
-
-export {MovieDetailsScreen};
+export {default as MovieDetailsScreen} from './MovieDetailsScreen';

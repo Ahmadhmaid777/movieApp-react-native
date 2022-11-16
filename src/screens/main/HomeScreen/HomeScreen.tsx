@@ -10,14 +10,11 @@ import {
   usePopularMoviesTest,
 } from './HomeScreen.hooks';
 import PopularMoviesList from './components/PopularMoviesList';
-import {AppContext} from 'navigation';
 import {IMovie} from 'types';
 
 const HomeScreen = () => {
   let [nowShowingMovies, setNowShowingMovies] = useState<IMovie[]>([]);
   let {data, error, loading, fetchNextPage} = usePopularMovies();
-  let obj = usePopularMoviesTest();
-  console.log(obj);
 
   const _getNowShowingMovies = async () => {
     let data = await getNowShowingMovies({pageParam: 1});
@@ -27,6 +24,8 @@ const HomeScreen = () => {
   useEffect(() => {
     _getNowShowingMovies();
   }, []);
+
+  console.log('render');
 
   return (
     <Wrapper scrollEnable={false}>

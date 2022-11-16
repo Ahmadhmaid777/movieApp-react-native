@@ -1,5 +1,3 @@
-import {HomeScreen} from './HomeScreen';
-import {MovieDetailsScreen} from './MovieDetailsScreen';
-import {WatchListScreen} from './WatchListScreen';
-
-export {HomeScreen, MovieDetailsScreen, WatchListScreen};
+export {HomeScreen} from './HomeScreen';
+export {MovieDetailsScreen} from './MovieDetailsScreen';
+export {WatchListScreen} from './WatchListScreen';

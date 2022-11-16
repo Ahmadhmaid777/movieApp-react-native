@@ -4,7 +4,7 @@ type QueryKeyProps = [key: string, ...rest: any];
 type QueryFnProp = ({pageParams = 1}: {pageParams?: number}) => Promise<any>;
 type QueryConfigProps<T = unknown> =
   | {
-      enable: boolean;
+      enable?: boolean;
       getNextPage: (lastPage: T) => number;
     }
   | undefined;
@@ -12,7 +12,7 @@ type QueryConfigProps<T = unknown> =
 function useInfinitQuery<R = any[]>(
   queryKey: QueryKeyProps,
   queryFn: QueryFnProp,
-  config: QueryConfigProps<R>,
+  config: QueryConfigProps<R> = {enable: true, getNextPage: () => 1},
 ) {
   // config = {enable = true, getNextPage}
   let [data, setDate] = useState<R[]>([]);
@@ -54,9 +54,9 @@ function useInfinitQuery<R = any[]>(
   };
 
   useEffect(() => {
-    config?.enable && handelQueryFn();
+    config.enable && handelQueryFn();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [config?.enable, nextPage]);
+  }, [config.enable, nextPage]);
   const refetch = handelQueryFn;
   return {
     data,

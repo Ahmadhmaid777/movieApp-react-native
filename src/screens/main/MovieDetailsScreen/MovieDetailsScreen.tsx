@@ -24,6 +24,7 @@ import {ICast} from 'types';
 import CastList from './components/CastList';
 import {useStore} from 'store/Store';
 import {observer} from 'mobx-react-lite';
+import FastImage from 'react-native-fast-image';
 
 const MovieDetailsScreen = ({
   navigation,
@@ -69,11 +70,12 @@ const MovieDetailsScreen = ({
   return (
     <View style={{flex: 1}}>
       <StatusBar barStyle={'light-content'} />
-      <ImageBackground
+      <FastImage
         style={styles.image}
-        source={{uri: endpoints.imagesEndPonint + movie?.poster_path}}>
+        resizeMode={FastImage.resizeMode.stretch}
+        source={{uri: endpoints.imagesEndPonint + movie?.backdrop_path}}>
         <Header />
-      </ImageBackground>
+      </FastImage>
       <View style={styles.detailsContainer}>
         <View style={styles.spaceBetweenRow}>
           <Text tx={movie?.title} variant="largeXLarge" />

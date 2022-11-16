@@ -11,7 +11,6 @@ class GenerStore {
       .get(endpoints.genersList)
       .then(res => {
         this.geners = res.data.genres;
-        console.log(res.data.genres);
       })
       .catch(err => {
         throw new Error(err.message);

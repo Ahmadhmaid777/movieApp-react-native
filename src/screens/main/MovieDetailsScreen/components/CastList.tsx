@@ -6,6 +6,7 @@ import {ListHeader, Text} from 'components';
 import {endpoints} from 'config';
 import {spacing} from 'theme';
 import {images} from 'assets';
+import FastImage from 'react-native-fast-image';
 
 type CastListProps = {
   cast: ICast[] | undefined;
@@ -17,7 +18,7 @@ const RenderHeader = () => {
 const RenderItem = ({item}: {item: ICast}) => {
   return (
     <View style={styles.castItemContainer}>
-      <Image
+      <FastImage
         source={{uri: endpoints.imagesEndPonint + item.profile_path}}
         style={styles.image}
         defaultSource={images.ProfileImagePlaceholder}

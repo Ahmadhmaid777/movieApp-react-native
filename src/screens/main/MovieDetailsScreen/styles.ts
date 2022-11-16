@@ -30,7 +30,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     marginHorizontal: spacing.large,
-    marginTop: spacing.xxlarge * 2,
   },
 });
 
